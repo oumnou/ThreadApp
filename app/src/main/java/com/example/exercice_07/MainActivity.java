@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity  {
 
         signInBtn.setOnClickListener(v -> {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.signUpFragment, signInFragment, null)
+                .replace(R.id.frameLayout, signInFragment, null)
                 .commit();
     });
 

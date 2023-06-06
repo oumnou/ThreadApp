@@ -104,11 +104,11 @@ public class SignInFragment extends Fragment {
 
 
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        signIn = (ISignIn) context;
-    }
+//    @Override
+//    public void onAttach(@NonNull Context context) {
+//        super.onAttach(context);
+//        signIn = (ISignIn) context;
+//    }
 
     interface ISignIn {
         void onSignIn(String firstName, String lastName);
