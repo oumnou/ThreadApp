@@ -61,9 +61,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
+
         android:ems="10"
         android:gravity="center"
         android:hint="Email"
+
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,9 @@
         android:layout_marginTop="53dp"
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="213dp"
-        android:background="#C2A7C6"
+
+        android:backgroundTint="#C37171"
+
         android:text="Sign up"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
