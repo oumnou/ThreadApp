@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -22,7 +23,7 @@ public class SignUpFragment extends Fragment {
 
 
 
-    static Map<String,Identity> allUsers;
+    static Map<String,Identity> allUsers =  new HashMap<>();
     private EditText firstNameEt, lastNameEt, emailUpEt, passwordUpEt, confirmPassworEt;
     private Button btnSignUp;
     public SignUpFragment() {
@@ -95,6 +96,7 @@ public class SignUpFragment extends Fragment {
                     user.setLastName(last);
                     user.setEmail(email);
                     user.setPassword(pass);
+
                     allUsers.put(email,user);
 
                     Toast.makeText(getContext(), "Account Created", Toast.LENGTH_SHORT).show();
