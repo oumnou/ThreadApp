@@ -2,17 +2,19 @@ package com.example.exercice_07;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class SignUpFragment extends Fragment {
 
-
+    private EditText firstNameEt, lastNameEt, emailUpEt, passwordUpEt, confirmPassworEt;
+    private Button btnSignUp;
     public SignUpFragment() {
         // Required empty public constructor
     }
@@ -35,9 +37,16 @@ public class SignUpFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+        firstNameEt = view.findViewById(R.id.firstNameEt);
+        lastNameEt = view.findViewById(R.id.lastNameEt);
+        emailUpEt = view.findViewById(R.id.emailUpEt);
+        passwordUpEt = view.findViewById(R.id.passwordUpEt);
+        confirmPassworEt = view.findViewById(R.id.confirmPassworEt);
+        btnSignUp = view.findViewById(R.id.btnSignUp);
     }
 }
