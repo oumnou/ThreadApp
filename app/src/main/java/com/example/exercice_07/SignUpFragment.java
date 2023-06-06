@@ -96,9 +96,7 @@ public class SignUpFragment extends Fragment {
                     allUsers.put(email,user);
 
                     Toast.makeText(getContext(), "Account Created", Toast.LENGTH_SHORT).show();
-                    String emailIn = email;
-                    String passwordIn = pass;
-                    SignInFragment signInFragment = SignInFragment.newInstance(emailIn, passwordIn);
+                    SignInFragment signInFragment = SignInFragment.newInstance(email, pass);
 
                     FragmentManager fragmentManager = getParentFragmentManager();
                     fragmentManager.beginTransaction()

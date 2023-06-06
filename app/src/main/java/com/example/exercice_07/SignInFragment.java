@@ -22,12 +22,10 @@ public class SignInFragment extends Fragment {
 
     private EditText emailEt, passwordEt;
     ISignIn signIn;
-    private Button btn_ok;
+    private Button btnSign;
     private Map<String, Identity> users;
 
     SignUpFragment signUpFragment;
-    private String mParam1;
-    private String mParam2;
 
     public SignInFragment() {
         // Required empty public constructor
@@ -55,7 +53,7 @@ public class SignInFragment extends Fragment {
 
         emailEt = view.findViewById(R.id.emailEt);
         passwordEt = view.findViewById(R.id.passwordEt);
-        btn_ok = view.findViewById(R.id.btnSingIn);
+        btnSign = view.findViewById(R.id.btnSingIn);
         signUpFragment = new SignUpFragment();
 
 
@@ -70,33 +68,37 @@ public class SignInFragment extends Fragment {
         }
 
 
-        btn_ok.setOnClickListener(v -> {
+
+            btnSign.setOnClickListener(v -> {
 
                 String email = emailEt.getText().toString();
                 String password = passwordEt.getText().toString();
 
                 users = SignUpFragment.allUsers;
 
-                Identity user = users.get(email);
 
 
-
-
-                    if(user != null && user.getPassword().equals(password)) {
+                try {
+                    Identity user = users.get(email);
+                    if (user.getPassword().equals(password)) {
 
 
                         String firstName = user.getFirstName();
-                        String lastName =  user.getLastName();
+                        String lastName = user.getLastName();
                         signIn.onSignIn(firstName, lastName);
                         Toast.makeText(getContext(), "Welcome :)", Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(getContext(), "A sahebiii nta rah makaynx :(", Toast.LENGTH_SHORT).show();
                     }
+                }
+
+                catch(Exception e ) {
+                    Toast.makeText(getContext(), "A sahebiii nta rah makaynx :(", Toast.LENGTH_SHORT).show();
+
+                }
 
 
+                    });
 
 
-        });
     }
 
     @Override
