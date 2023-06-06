@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity  {
     SignUpFragment signUpFragment;
 
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
