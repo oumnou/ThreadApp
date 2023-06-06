@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="547dp"
         android:backgroundTint="#C37171"
         android:text="sign In"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintHorizontal_bias="0.759"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/signUpBtn"
@@ -27,39 +27,31 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="543dp"
         android:backgroundTint="#C37171"
         android:text="sign Up"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Space
-        android:id="@+id/space"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="202dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="210dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space">
-
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
