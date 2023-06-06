@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/firstNameEt"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="128dp"
@@ -26,7 +26,7 @@
 
     <EditText
         android:id="@+id/confirmPassworEt"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
@@ -41,7 +41,7 @@
 
     <EditText
         android:id="@+id/passwordUpEt"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
@@ -56,7 +56,7 @@
 
     <EditText
         android:id="@+id/emailUpEt"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
@@ -73,7 +73,7 @@
 
     <EditText
         android:id="@+id/lastNameEt"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -96,15 +96,16 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="213dp"
 
-        android:backgroundTint="#C37171"
+        android:backgroundTint="#2196F3"
 
         android:text="Sign up"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPassworEt" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassworEt"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
