@@ -1,5 +1,6 @@
 package com.example.exercice_07;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import java.util.Map;
 public class SignInFragment extends Fragment {
 
     private EditText emailEt, passwordEt;
+    ISignIn signIn;
     private Button btn_ok;
     private Map<String,ArrayList<String>> users;
 
@@ -53,7 +55,7 @@ public class SignInFragment extends Fragment {
 
         emailEt = view.findViewById(R.id.emailEt);
         passwordEt = view.findViewById(R.id.passwordEt);
-        btn_ok = view.findViewById(R.id.btn_ok);
+        btn_ok = view.findViewById(R.id.btnSingIn);
         signUpFragment = new SignUpFragment();
 
 
@@ -69,46 +71,28 @@ public class SignInFragment extends Fragment {
 
 
         btn_ok.setOnClickListener(v -> {
-            try {
+           // try {
                 String email = emailEt.getText().toString();
                 String password = passwordEt.getText().toString();
 
-                users = SignUpFragment.getUsers();
+                //users = SignUpFragment.getUsers();
 
-                for (int i = 0; i < users.size(); i++) {
-                    if(users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
+                //for (int i = 0; i < users.size(); i++) {
+                    //if(users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
                         //region Values to send to the AccountFragment
-                        firstName = users.get(i).getFirstName();
-                        lastName =  users.get(i).getLastName();
-                        signIn.onSignIn(firstName, lastName);
+                        //firstName = users.get(i).getFirstName();
+                       // lastName =  users.get(i).getLastName();
+                        // signIn.onSignIn(firstName, lastName);
                         //endregion
-                    }
-                }
-            } catch (Exception e) {
+                  //  }
+                //}
+            //} catch (Exception e) {
                 Toast.makeText(getContext(), "The inputs are empty !!!", Toast.LENGTH_SHORT).show();
-            }
+            //}
+        //});
+
+
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
     }
 
     @Override
@@ -117,4 +101,18 @@ public class SignInFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sign_in, container, false);
     }
+
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        signIn = (ISignIn) context;
+    }
+
+    interface ISignIn {
+        void onSignIn(String firstName, String lastName);
+    }
 }
+
+
