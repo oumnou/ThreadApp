@@ -23,7 +23,7 @@ public class SignInFragment extends Fragment {
     private EditText emailEt, passwordEt;
     ISignIn signIn;
     private Button btn_ok;
-    private Map<String,ArrayList<String>> users;
+    private Map<String, Identity> users;
 
     SignUpFragment signUpFragment;
     private String mParam1;
@@ -71,25 +71,29 @@ public class SignInFragment extends Fragment {
 
 
         btn_ok.setOnClickListener(v -> {
-           // try {
+
                 String email = emailEt.getText().toString();
                 String password = passwordEt.getText().toString();
 
-                //users = SignUpFragment.getUsers();
+                users = SignUpFragment.allUsers;
 
-                //for (int i = 0; i < users.size(); i++) {
-                    //if(users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
-                        //region Values to send to the AccountFragment
-                        //firstName = users.get(i).getFirstName();
-                       // lastName =  users.get(i).getLastName();
-                        // signIn.onSignIn(firstName, lastName);
-                        //endregion
-                  //  }
-                //}
-            //} catch (Exception e) {
-                Toast.makeText(getContext(), "The inputs are empty !!!", Toast.LENGTH_SHORT).show();
-            //}
-        //});
+                Identity user = users.get(email);
+
+
+
+
+                    if(user != null && user.getPassword().equals(password)) {
+
+
+                        String firstName = user.getFirstName();
+                        String lastName =  user.getLastName();
+                        signIn.onSignIn(firstName, lastName);
+                        Toast.makeText(getContext(), "Welcome :)", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getContext(), "A sahebiii nta rah makaynx :(", Toast.LENGTH_SHORT).show();
+                    }
+
+
 
 
         });
@@ -104,11 +108,11 @@ public class SignInFragment extends Fragment {
 
 
 
-//    @Override
-//    public void onAttach(@NonNull Context context) {
-//        super.onAttach(context);
-//        signIn = (ISignIn) context;
-//    }
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        signIn = (ISignIn) context;
+    }
 
     interface ISignIn {
         void onSignIn(String firstName, String lastName);

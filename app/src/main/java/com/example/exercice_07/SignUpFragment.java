@@ -5,19 +5,29 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 
 public class SignUpFragment extends Fragment {
 
+
+
+    static Map<String,Identity> allUsers;
     private EditText firstNameEt, lastNameEt, emailUpEt, passwordUpEt, confirmPassworEt;
     private Button btnSignUp;
     public SignUpFragment() {
         // Required empty public constructor
     }
+
+
 
     public static SignUpFragment newInstance(String email, String password) {
         SignUpFragment fragment = new SignUpFragment();
@@ -27,6 +37,10 @@ public class SignUpFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +62,59 @@ public class SignUpFragment extends Fragment {
         passwordUpEt = view.findViewById(R.id.passwordUpEt);
         confirmPassworEt = view.findViewById(R.id.confirmPassworEt);
         btnSignUp = view.findViewById(R.id.btnSignUp);
-    }
+
+
+
+
+
+        btnSignUp.setOnClickListener(v -> {
+
+            //region Create user Objects
+            Identity user = new Identity();
+
+            String first = String.valueOf(firstNameEt.getText());
+            String last = String.valueOf(lastNameEt.getText());
+            String email = String.valueOf(emailUpEt.getText());
+            String pass = String.valueOf(passwordUpEt.getText());
+            String conf = String.valueOf(confirmPassworEt.getText());
+
+
+
+
+            if(last.equals("") || first.equals("") || email.equals("") || pass.equals("") || conf.equals("")) {
+
+                Toast.makeText(getContext(), "emmmmmmmmm !!!", Toast.LENGTH_SHORT).show();
+
+            } else {
+                if (!conf.equals(pass)) { Toast.makeText(getContext(), "password not good !!!", Toast.LENGTH_SHORT).show();}
+
+                else {
+                    user.setFirstName(first);
+                    user.setLastName(last);
+                    user.setEmail(email);
+                    user.setPassword(pass);
+                    allUsers.put(email,user);
+
+                    Toast.makeText(getContext(), "Account Created", Toast.LENGTH_SHORT).show();
+                    String emailIn = email;
+                    String passwordIn = pass;
+                    SignInFragment signInFragment = SignInFragment.newInstance(emailIn, passwordIn);
+
+                    FragmentManager fragmentManager = getParentFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.frameLayout, signInFragment)
+                            .commit();
+
+                }
+
+
+
+
+
+
+
+
+            }
+    });
+}
 }

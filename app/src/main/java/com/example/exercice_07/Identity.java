@@ -1,6 +1,8 @@
 package com.example.exercice_07;
 
-public class Identity {
+import java.io.Serializable;
+
+public class Identity implements Serializable {
 
     private String firstName;
     private String lastName;
