@@ -74,18 +74,21 @@ public class SignInFragment extends Fragment {
                 String email = emailEt.getText().toString();
                 String password = passwordEt.getText().toString();
 
-                users = SignUpFragment.allUsers;
+                users = SignUpFragment.getIndentities();
 
 
 
                 try {
+
                     Identity user = users.get(email);
+                    assert user != null;
                     if (user.getPassword().equals(password)) {
 
 
                         String firstName = user.getFirstName();
                         String lastName = user.getLastName();
                         signIn.onSignIn(firstName, lastName);
+
                         Toast.makeText(getContext(), "Welcome :)", Toast.LENGTH_SHORT).show();
                     }
                 }

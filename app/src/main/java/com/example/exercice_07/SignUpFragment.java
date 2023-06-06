@@ -23,13 +23,16 @@ public class SignUpFragment extends Fragment {
 
 
 
-    static Map<String,Identity> allUsers =  new HashMap<>();
+    public static Map<String,Identity> allUsers =  new HashMap<>();
     private EditText firstNameEt, lastNameEt, emailUpEt, passwordUpEt, confirmPassworEt;
     private Button btnSignUp;
     public SignUpFragment() {
         // Required empty public constructor
     }
 
+    public static Map<String, Identity> getIndentities() {
+        return allUsers;
+    }
 
 
     public static SignUpFragment newInstance(String email, String password) {
@@ -65,11 +68,6 @@ public class SignUpFragment extends Fragment {
         passwordUpEt = view.findViewById(R.id.passwordUpEt);
         confirmPassworEt = view.findViewById(R.id.confirmPassworEt);
         btnSignUp = view.findViewById(R.id.btnSignUp);
-
-
-
-
-
         btnSignUp.setOnClickListener(v -> {
 
             //region Create user Objects
@@ -107,14 +105,14 @@ public class SignUpFragment extends Fragment {
                             .replace(R.id.frameLayout, signInFragment)
                             .commit();
 
+
+                    firstNameEt.setText("");
+                    lastNameEt.setText("");
+                    emailUpEt.setText("");
+                    passwordUpEt.setText("");
+                    confirmPassworEt.setText("");
+
                 }
-
-
-
-
-
-
-
 
             }
     });
