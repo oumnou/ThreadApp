@@ -80,7 +80,7 @@ public class SignInFragment extends Fragment  {
 
                     if (user.getPassword().equals(password)) {
 
-                        Toast.makeText(getContext(),user.getPassword(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(),user.getPassword(), Toast.LENGTH_SHORT).show();
 
                         String firstName = user.getFirstName();
                         String lastName = user.getLastName();
