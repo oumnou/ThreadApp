@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements SignInFragment.IS
 
     @Override
     public void onSignIn(String firstName, String lastName) {
-        Intent intent = new Intent(MainActivity.this, WelcomeFragment.class);
+        Intent intent = new Intent(MainActivity.this, welcomeActivity.class);
         intent.putExtra("first name", firstName);
         intent.putExtra("last Name", lastName);
         startActivity(intent);
