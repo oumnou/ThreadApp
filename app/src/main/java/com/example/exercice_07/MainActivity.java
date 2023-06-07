@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements SignInFragment.ISignIn  {
 
     Button signInBtn;
     Button signUpBtn;
@@ -52,4 +52,12 @@ public class MainActivity extends AppCompatActivity  {
     });
 
 }
+
+    @Override
+    public void onSignIn(String firstName, String lastName) {
+        Intent intent = new Intent(MainActivity.this, WelcomeFragment.class);
+        intent.putExtra("first name", firstName);
+        intent.putExtra("last Name", lastName);
+        startActivity(intent);
+    }
 }

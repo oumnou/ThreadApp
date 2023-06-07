@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class SignInFragment extends Fragment {
+public class SignInFragment extends Fragment  {
 
     private EditText emailEt, passwordEt;
     ISignIn signIn;
@@ -34,17 +34,14 @@ public class SignInFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static SignInFragment newInstance(String email, String password) {
         SignInFragment fragment = new SignInFragment();
+
         Bundle args = new Bundle();
         args.putString("email", email);
         args.putString("pass", password);
         fragment.setArguments(args);
+
         return fragment;
     }
-
-
-
-
-
 
     @Override
 
@@ -67,8 +64,6 @@ public class SignInFragment extends Fragment {
 
         }
 
-
-
             btnSign.setOnClickListener(v -> {
 
                 String email = emailEt.getText().toString();
@@ -81,12 +76,15 @@ public class SignInFragment extends Fragment {
                 try {
 
                     Identity user = users.get(email);
-                    assert user != null;
+                    Toast.makeText(getContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
+
                     if (user.getPassword().equals(password)) {
 
+                        Toast.makeText(getContext(),user.getPassword(), Toast.LENGTH_SHORT).show();
 
                         String firstName = user.getFirstName();
                         String lastName = user.getLastName();
+
                         signIn.onSignIn(firstName, lastName);
 
                         Toast.makeText(getContext(), "Welcome :)", Toast.LENGTH_SHORT).show();
@@ -94,7 +92,7 @@ public class SignInFragment extends Fragment {
                 }
 
                 catch(Exception e ) {
-                    Toast.makeText(getContext(), "A sahebiii nta rah makaynx :(", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 
