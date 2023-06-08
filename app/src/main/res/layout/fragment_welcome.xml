@@ -23,8 +23,8 @@
             android:id="@+id/first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:textColor="#D84444"
+
+            android:textColor="#673AB7"
             android:textSize="24sp" />
 
         <TextView
@@ -32,7 +32,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:textColor="#D84444"
+            android:layout_marginLeft="12dp"
+
+            android:textColor="#673AB7"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -43,7 +45,7 @@
         android:layout_marginTop="112dp"
         android:layout_marginBottom="168dp"
         android:text="Welcome "
-        android:textSize="34sp"
+        android:textSize="54sp"
         app:layout_constraintBottom_toTopOf="@+id/button_logOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="312dp"
         android:layout_marginBottom="371dp"
-        android:backgroundTint="#E62121"
+        android:backgroundTint="#673AB7"
         android:text="LOG OUT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

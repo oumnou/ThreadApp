@@ -76,7 +76,7 @@ public class SignInFragment extends Fragment  {
                 try {
 
                     Identity user = users.get(email);
-                    Toast.makeText(getContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
+
 
                     if (user.getPassword().equals(password)) {
 
@@ -87,12 +87,12 @@ public class SignInFragment extends Fragment  {
 
                         signIn.onSignIn(firstName, lastName);
 
-                        Toast.makeText(getContext(), "Welcome :)", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 
                 catch(Exception e ) {
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                 }
 

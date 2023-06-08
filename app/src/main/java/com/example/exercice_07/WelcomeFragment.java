@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,8 +48,7 @@ public class WelcomeFragment extends Fragment {
             l = getArguments().getString("last name");
             f = getArguments().getString("first name");
 
-            System.out.printf(l);
-            Log.d("test",f);
+
         }
     }
 
@@ -66,16 +66,17 @@ public class WelcomeFragment extends Fragment {
 
         TextView last = view.findViewById(R.id.last);
         TextView first = view.findViewById(R.id.first);
+        Button ex = view.findViewById(R.id.button_logOut);
 
-        Toast.makeText(view.getContext(),f,Toast.LENGTH_SHORT).show();
-        String nam = f +"  "+ l;
 
-        Log.d("test",nam);
+
 
         first.setText(f);
         last.setText(l);
 
-        // 18/07/2023
+        ex.setOnClickListener(v -> {
+            requireActivity().finishAffinity();
+        });
 
     }
 }

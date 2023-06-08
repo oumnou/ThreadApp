@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements SignInFragment.IS
 
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +41,25 @@ public class MainActivity extends AppCompatActivity implements SignInFragment.IS
                 .commit();
 
 
+
+
         signUpBtn.setOnClickListener(v -> {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, signUpFragment, null)
                 .commit();
+
+        signUpBtn.setBackgroundColor(Color.parseColor("#61AFED"));
+            signInBtn.setBackgroundColor(Color.parseColor("#673AB7"));
+           // signInBtn.setBackgroundResource(R.color.white);
     });
 
         signInBtn.setOnClickListener(v -> {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, signInFragment, null)
                 .commit();
+            signUpBtn.setBackgroundColor(Color.parseColor("#673AB7"));
+            //signUpBtn.setBackgroundResource(R.color.OFF);
+            signInBtn.setBackgroundColor(Color.parseColor("#61AFED"));
     });
 
 }
